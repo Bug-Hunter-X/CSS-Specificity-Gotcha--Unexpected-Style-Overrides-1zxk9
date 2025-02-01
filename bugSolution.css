@@ -1,0 +1,27 @@
+Several approaches can solve this depending on the desired outcome.  To make the styles more predictable, one may prefer a more structured approach using more specific or less specific selectors depending on the situation. For instance:
+
+```css
+/* Using more specific selectors */
+#myElement.myClass {
+  color: green;
+}
+#myElement {
+  color: blue;
+}
+.myClass {
+  color: red;
+}
+
+/* Alternatively, if the `red` class is the intended default, remove the specificity */
+.myClass {
+  color: red; 
+}
+#myElement {
+  color: blue;
+}
+#myElement.myClass {
+  color: green; /* will override both selectors*/
+}
+```
+
+**Important Note:** While `!important` can override any specificity, its overuse is generally discouraged as it makes CSS harder to maintain and debug. It can often indicate underlying issues with CSS structure and specificity that should be addressed instead of relying on `!important`.
